@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registered</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+        main {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        .student-info {
+            margin-bottom: 20px;
+        }
+        .student-info p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .course-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .course-list li {
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h2>Successfully Registered Student Information</h2>
+    <div class="student-info">
+        <strong>Id:</strong> <p th:text="${student.id}"></p>
+        <strong>Name:</strong> <p th:text="${student.name}"></p>
+        <strong>USN:</strong> <p th:text="${student.usn}"></p>
+    </div>
+
+    <div>
+        <strong>Courses:</strong>
+        <ul class="course-list" th:each="course : ${student.courseList}">
+            <li th:text="${course.courseName}">Course Name</li>
+        </ul>
+    </div>
+
+    <a th:href="@{/dashboard}" class="back-link">Back to Dashboard</a>
+</main>
+
+<!-- Add Bootstrap JS and dependencies -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
